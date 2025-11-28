@@ -1,5 +1,6 @@
 "use client";
 
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
@@ -20,6 +21,7 @@ export default function Home() {
           </span>
         </div>
         <div className="flex items-center gap-4">
+          <ConnectButton showBalance={false} />
           <ModeToggle />
           <Link href="/onboarding">
             <Button>Get Started</Button>

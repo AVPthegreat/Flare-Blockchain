@@ -20,10 +20,26 @@ export default function ShoppingListPage() {
                             Back to Planner
                         </Button>
                     </Link>
-                    <Button variant="destructive" onClick={clearShoppingList} disabled={shoppingList.length === 0}>
-                        <Trash2 className="mr-2 h-4 w-4" />
-                        Clear All
-                    </Button>
+                    <div className="flex gap-2">
+                        <Button variant="outline" onClick={() => {
+                            const text = shoppingList.join('\n');
+                            navigator.clipboard.writeText(text);
+                            window.open('https://www.instacart.com', '_blank');
+                        }} disabled={shoppingList.length === 0}>
+                            Checkout on Instacart
+                        </Button>
+                        <Button variant="outline" onClick={() => {
+                            const text = shoppingList.join('\n');
+                            navigator.clipboard.writeText(text);
+                            window.open('https://www.amazon.com/fresh', '_blank');
+                        }} disabled={shoppingList.length === 0}>
+                            Checkout on Amazon
+                        </Button>
+                        <Button variant="destructive" onClick={clearShoppingList} disabled={shoppingList.length === 0}>
+                            <Trash2 className="mr-2 h-4 w-4" />
+                            Clear List
+                        </Button>
+                    </div>
                 </header>
 
                 <Card className="border-none shadow-xl">

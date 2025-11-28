@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     Return ONLY valid JSON in the following format:
     {
       "Monday": {
-        "breakfast": { "id": "unique_id", "name": "Meal Name", "calories": 500, "ingredients": ["ing1", "ing2"], "instructions": ["step1", "step2"] },
+        "breakfast": { "id": "unique_id", "name": "Meal Name", "calories": 500, "protein": 30, "carbs": 40, "fat": 20, "ingredients": ["ing1", "ing2"], "instructions": ["step1", "step2"] },
         "lunch": { ... },
         "dinner": { ... }
       },
@@ -45,13 +45,23 @@ export async function POST(req: Request) {
     
     try {
       // Fallback to Gemini
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
       const result = await model.generateContent(prompt);
       const response = await result.response;
       const text = response.text();
       
+      console.log("Gemini Raw Response:", text); // Debug log
+
       // Clean up markdown code blocks if present
-      const jsonString = text.replace(/```json/g, "").replace(/```/g, "").trim();
+      let jsonString = text.replace(/```json/g, "").replace(/```/g, "").trim();
+      
+      // Ensure we have valid JSON start/end
+      const startIndex = jsonString.indexOf("{");
+      const endIndex = jsonString.lastIndexOf("}");
+      if (startIndex !== -1 && endIndex !== -1) {
+        jsonString = jsonString.substring(startIndex, endIndex + 1);
+      }
+
       const plan = JSON.parse(jsonString);
       
       return NextResponse.json(plan);
