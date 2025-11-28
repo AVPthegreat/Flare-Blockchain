@@ -122,7 +122,7 @@ export const useMealStore = create<MealStore>()(
             });
           }
         } catch (error) {
-          console.error("Generation failed, falling back to mock", error);
+          console.warn("Generation failed, falling back to mock", error);
           useMock = true;
         }
 
