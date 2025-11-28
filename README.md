@@ -1,4 +1,4 @@
-[View on Flare Explorer](https://coston2-explorer.flare.network//tx/0x52b2a533028847af7e056c452c382eaebc82e3e4a8d9adec5b201dd2aac5751e)
+[Contract Details](https://coston2-explorer.flare.network//tx/0x52b2a533028847af7e056c452c382eaebc82e3e4a8d9adec5b201dd2aac5751e)
 
 # NourishAI 🥗
 
@@ -23,6 +23,16 @@
 - **AI Integration**: OpenAI SDK + Google Generative AI SDK
 - **Icons**: Lucide React
 - **Theming**: next-themes
+
+## 🔮 Future Roadmap
+
+We are constantly innovating. Here is what's coming next:
+
+- **🔐 User Accounts (Auth)**: Save plans and access them from any device (via Clerk/NextAuth).
+- **🚚 Grocery Delivery**: One-click export of your shopping list to Instacart or Amazon Fresh.
+- **📊 Macro Tracking**: Visual charts showing daily Protein, Carb, and Fat intake.
+- **🤝 Social Sharing**: "Share my Plan" feature for couples, families, or roommates.
+- **💰 Monetization**: "Pro" tier subscription ($5/mo) for advanced AI features and history.
 
 ## 🏁 Getting Started
 
